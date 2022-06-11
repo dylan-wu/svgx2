@@ -1,0 +1,293 @@
+/* App.svelte */
+main {
+
+    /******************************* DARK *******************************/
+    &.theme--dark {
+        @apply bg-gray-800;
+
+        .theme__text {
+            @apply text-gray-400;
+        }
+
+        .theme__bg {
+            @apply bg-gray-900;
+        }
+
+        .theme__border {
+            @apply border-gray-800;
+        }
+
+        .theme__generic-wrapper {
+            @extend .theme__text;
+            @extend .theme__bg;
+        }
+
+        .theme__subtle-border {
+            @apply border-gray-700;
+        }
+
+        nav.theme__sidebar {
+            & button {
+                @apply text-gray-500;
+                &:hover {
+                    @apply text-gray-200;
+                }
+    
+                @apply border-gray-800;
+                &.selected {
+                    @apply text-gray-200;
+                    @apply border-svelte-orange;
+                }
+            }
+        }
+
+        /* BreadcrumbNav.svelte */
+        .theme__breadcrumb-nav {
+            @apply text-gray-500;
+            &:hover {
+                @apply text-gray-200;
+            }
+        }
+
+        /* FileBrowser.svelte */
+        .theme__filebrowser {
+            @extend .theme__generic-wrapper;
+
+            .theme__search-icon {
+                @apply text-gray-700;
+            }
+            .theme__search-input {
+                @apply bg-gray-800;
+                @apply border-gray-700;
+                &::placeholder {
+                    @apply text-gray-700;
+                }
+            }
+            .theme__folder-btn {
+                &:hover {
+                    @apply bg-blue-800;
+                }
+            }
+            .theme__folder-svg {
+                @apply text-yellow-700;
+            }
+        }
+        .theme__file-btn {
+            &.theme__file-selected {
+                @apply bg-blue-900;
+            }
+            &:hover {
+                @apply bg-blue-800;
+            }
+        }
+
+        /* PreviewControls.svelte */
+        .theme__preview-controls {
+            @apply bg-gray-900;
+            @apply border-gray-600;
+        }
+
+        /* formerly Header.svelte */
+        .theme__svg-btn {
+            @apply text-gray-500;
+            &:hover {
+                @apply text-gray-200;
+            }
+            &.selected {
+                @apply text-white;
+            }
+            .theme__svg-txt {
+                // @apply text-gray-800;
+                // TODO figure out how to extract group-hover
+            }    
+        }
+
+        /* Zoom.svelte + BgColor.svelte */
+        .theme__control-wrapper {
+            @apply text-gray-400;
+            @apply border-gray-700;
+        }
+        .theme__control-minmax {
+            @apply text-gray-700;
+        }
+        .theme__color-picker-wrapper {
+            @apply bg-gray-700;
+            @apply border-gray-600;
+        }
+        .theme__color-picker-reset:hover {
+            @apply text-gray-400;
+        }
+
+        /* PreviewPane.svelte */
+        .theme__wrapper-bg {
+            @apply bg-gray-700;
+        }
+        .theme__svg-preview {
+            @apply text-gray-400;
+        }
+        .theme__code-bg {
+            @apply bg-gray-900;
+        }
+
+        /* CodePane.svelte */
+        .theme__tab-btn:not(.bg-svelte-orange) {
+            @apply bg-blue-900;
+
+            &:hover {
+                @apply bg-blue-800;
+            }
+        }
+
+        /* AddBookmark.svelte */
+        .theme__add-bookmark {
+            &:not(.absolute) {
+                @apply text-gray-400;
+                &:hover {
+                    @apply text-gray-200;
+                }
+            }
+        }
+    }
+
+    /******************************* LIGHT *******************************/
+    &.theme--light {
+        @apply bg-gray-200;
+
+        .theme__text {
+            //
+        }
+
+        .theme__bg {
+            @apply bg-white;
+        }
+
+        .theme__border {
+            //
+        }
+
+        .theme__generic-wrapper {
+            @extend .theme__text;
+            @extend .theme__bg;
+        }
+
+        .theme__subtle-border {
+            @apply border-gray-400;
+        }
+
+        nav.theme__sidebar {
+            & button {
+                @apply text-gray-600;
+                &:hover {
+                    @apply text-black;
+                }
+    
+                @apply border-gray-200;
+                &.selected {
+                    @apply text-black;
+                    @apply border-svelte-orange;
+                }
+            }
+        }
+
+        /* BreadcrumbNav.svelte */
+        .theme__breadcrumb-nav {
+            @apply text-gray-600;
+            &:hover {
+                @apply text-black;
+            }
+        }
+
+        /* FileBrowser.svelte */
+        .theme__filebrowser {
+            @extend .theme__generic-wrapper;
+
+            .theme__search-icon {
+                @apply text-gray-400;
+            }
+            .theme__search-input {
+                @apply bg-gray-100;
+            }
+            .theme__folder-btn {
+                &:hover {
+                    @apply bg-yellow-200;
+                }
+            }
+            .theme__folder-svg {
+                @apply text-yellow-400;
+            }
+        }
+        .theme__file-btn {
+            &.theme__file-selected {
+                @apply bg-orange-200;
+            }
+            &:hover {
+                @apply bg-yellow-200;
+            }
+        }
+
+        /* PreviewControls.svelte */
+        .theme__preview-controls {
+            @apply bg-white;
+        }
+
+        /* formerly Header.svelte */
+        .theme__svg-btn {
+            @apply text-gray-600;
+            &:hover {
+                @apply text-black;
+            }
+            &.selected {
+                @apply text-black;
+            }
+            .theme__svg-txt {
+                // @apply text-gray-200;
+                // TODO figure out how to extract group-hover
+            }    
+        }
+
+        /* Zoom.svelte + BgColor.svelte */
+        .theme__control-wrapper {
+            /* tw defaults */
+        }
+        .theme__control-minmax {
+            @apply text-gray-400;
+        }
+        .theme__color-picker-wrapper {
+            @apply bg-white;
+            @apply border-gray-400;
+        }
+        .theme__color-picker-reset:hover {
+            @apply text-black;
+        }
+
+        /* PreviewPane.svelte */
+        .theme__wrapper-bg {
+            @apply bg-white;
+        }
+        .theme__svg-preview {
+            /* tw defaults */
+        }
+        .theme__code-bg {
+            @apply bg-white;
+        }
+
+        /* CodePane.svelte */
+        .theme__tab-btn:not(.bg-svelte-orange) {
+            @apply bg-gray-200;
+
+            &:hover {
+                @apply bg-gray-300;
+            }
+        }
+
+        /* AddBookmark.svelte */
+        .theme__add-bookmark {
+            &:not(.absolute) {
+                @apply text-gray-700;
+                &:hover {
+                    @apply text-black;
+                }
+            }
+        }
+    }
+}

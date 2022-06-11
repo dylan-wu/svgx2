@@ -1,0 +1,141 @@
+/* =================== Buttons =================== */
+.btn {
+    @apply rounded;
+    @apply no-underline;
+    @apply inline-block;
+    @apply bg-gray-700;
+    @apply text-gray-100;
+    @apply text-center;
+
+    /* =================== Interaction =================== */
+
+    &:hover {
+        @apply no-underline;
+        @apply bg-gray-500;
+        @apply shadow-md;
+        @apply text-gray-800;
+    }
+
+    &:focus {
+        @apply bg-gray-600;
+        @apply text-gray-100;
+    }
+
+    /* =================== Sizes =================== */
+
+    /* Base button */
+    & {
+        @extend .btn;
+        @apply py-2;
+        @apply px-4;
+        @apply text-base;
+    }
+
+    /* Large button .btn--lg */
+    &--lg {
+        @extend .btn;
+        @apply py-3;
+        @apply px-4;
+        @apply text-lg;
+    }
+
+    /* Small button .btn--sm */
+    &--sm {
+        @extend .btn;
+        @apply py-1;
+        @apply px-4;
+        @apply text-sm;
+    }
+
+    /* Extra Small button .btn--xs */
+    &--xs {
+        @extend .btn;
+        @apply py-0;
+        @apply px-2;
+        @apply text-xs;
+    }
+
+
+    /**
+    * <Pill> button
+    * Example: .btn .btn--blue .btn--pill
+    */
+    &--pill {
+        @extend .btn;
+        @apply rounded-full;
+    }
+
+    /**
+    * <Link> button
+    * Example: .btn .btn--blue .btn--link
+    */
+    &--link {
+        @extend .btn;
+        @apply border-none;
+        @apply bg-transparent;
+        @apply text-gray-700;
+        @apply underline;
+
+        &:hover {
+            @apply bg-transparent;
+            @apply border-none;
+            @apply shadow-none;
+            @apply text-gray-900;
+            @apply underline;
+        }
+    }
+
+    /* =================== Colors / Outline =================== */
+
+    /* Iterate and build color and outline buttons for several colors */
+    $tw-primary-colors: ('blue', 'red', 'green', 'pink', 'gray');
+    @each $color in $tw-primary-colors {
+        /**
+        * <Color> button
+        * Example: .btn .btn--blue
+        */
+        &.btn--#{$color} {
+            @apply bg-#{$color}-500;
+            /*@apply text-#{$color}-100;*/
+            @apply text-white;
+
+            &:hover {
+                @apply bg-#{$color}-400;
+                /*@apply text-white;*/
+            }
+
+            &:focus {
+                @apply bg-#{$color}-600;
+                @apply text-#{$color}-100;
+            }
+
+            /**
+            * <Color> outline button
+            * Example: .btn .btn--blue--o
+            */
+            &--o {
+                @apply border;
+                @apply border-#{$color}-500;
+                @apply bg-transparent;
+                @apply text-#{$color}-500;
+
+                &:hover,
+                &:focus {
+                    @apply bg-#{$color}-500;
+                    @apply text-white;
+                }
+            }
+
+            &[disabled] {
+                @apply bg-#{$color}-200;
+                @apply text-#{$color}-500;
+                @apply cursor-wait;
+
+                &:hover {
+                    @apply shadow-none;
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,43 @@
+/* FileBrowser.svelte */
+.layout--grid {
+    @apply grid;
+    @apply grid-cols-3;
+
+    /**
+    * This causes the FileBrowser grid to be only 3 tiles wide
+    * on the smallest window size (800px)...
+    */
+    @screen smallest {
+        @apply grid-cols-4;
+    }
+
+    button {
+        @apply flex-col;
+        @apply mb-2;
+
+        & > div + div {
+            @apply mt-2;
+        }
+    }
+}
+
+.layout--list {
+    button {
+        @apply flex-row;
+
+        & > div {
+            @apply mr-2;
+        }
+    }
+}
+
+/**
+ * ... and the FileBrowser pane to be narrower as well
+ */
+aside.theme__filebrowser {
+    max-width: 250px;
+
+    @screen smallest {
+        @apply max-w-xs;
+    }
+}
